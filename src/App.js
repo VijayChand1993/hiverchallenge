@@ -1,24 +1,27 @@
-import logo from './logo.svg';
+import EmailView from './views/email/EmailView';
+import LabelView from './views/label/LabelView';
+import LoginView from './views/login/LoginView';
 import './App.css';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/login">
+          <LoginView />
+        </Route>
+        <Route path="/email">
+          <EmailView />
+        </Route>
+        <Route path="/label">
+          <LabelView />
+        </Route>
+        <Route path="/">
+          <LoginView />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
